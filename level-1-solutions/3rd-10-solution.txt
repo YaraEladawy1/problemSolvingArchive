@@ -1,1 +1,346 @@
-1
+problem 41
+#include <iostream>
+    using namespace std;
+
+float ReadNumber(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+    } while (number < 0);
+    return number;
+}
+
+float HoursToDays(float numberOfHours)
+{
+    return numberOfHours / 24;
+}
+
+float DaysToWeeks(float numberOfDays)
+{
+    return numberOfDays / 7;
+}
+
+float HoursToWeeks(float numberOfHours)
+{
+    return numberOfHours / 24 / 7;
+}
+
+int main()
+{
+    float numberOfHours = ReadNumber("enter number of hours");
+    float numberOfDays = HoursToDays(numberOfHours);
+    float numberOfWeeks = DaysToWeeks(numberOfDays);
+
+    cout << "total hours=" << numberOfHours << endl;
+    cout << "total days=" << numberOfDays << endl;
+    cout << "total weeks" << numberOfWeeks << endl;
+}
+
+problem 42
+#include <iostream>
+    using namespace std;
+
+struct stDurations
+{
+    int numberOfDays, numberOfHours, numberOfMinutes, numberOfSeconds;
+};
+int ReadPositiveNum(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+    } while (number <= 0);
+    return number;
+}
+
+stDurations ReadTaskDuration()
+{
+    stDurations taskDuration;
+    taskDuration.numberOfDays = ReadPositiveNum("enter the days");
+    taskDuration.numberOfHours = ReadPositiveNum("enter the hours");
+    taskDuration.numberOfMinutes = ReadPositiveNum("enter the miutes");
+    taskDuration.numberOfSeconds = ReadPositiveNum("enter the seconds");
+    return taskDuration;
+}
+
+int DurationInSeconds(stDurations taskDuration)
+{
+    int DurationInSeconds;
+    DurationInSeconds = taskDuration.numberOfDays * 24 * 60 * 60;
+    DurationInSeconds += taskDuration.numberOfHours * 60 * 60;
+    DurationInSeconds += taskDuration.numberOfMinutes * 60;
+    DurationInSeconds += taskDuration.numberOfSeconds;
+    return DurationInSeconds;
+}
+
+int main()
+{
+    cout << DurationInSeconds(ReadTaskDuration()) << endl;
+}
+
+PROBLEM 43
+#include <iostream>
+    using namespace std;
+
+struct stDurations
+{
+    int numberOfDays, numberOfHours, numberOfMinutes, numberOfSeconds;
+};
+int ReadPositiveNum(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+    } while (number <= 0);
+    return number;
+}
+
+stDurations secondsToDuration(int totalSeconds)
+{
+    stDurations taskDuration;
+    const int secPerDay = 24 * 60 * 60;
+    const int secPerHour = 60 * 60;
+    const int secPerMin = 60;
+    int Remainder;
+    taskDuration.numberOfDays = (totalSeconds / secPerDay);
+    Remainder = totalSeconds % secPerDay;
+    taskDuration.numberOfHours = (Remainder / secPerHour);
+    Remainder = Remainder % secPerHour;
+    taskDuration.numberOfMinutes = (Remainder / secPerMin);
+    Remainder = Remainder % secPerMin;
+    taskDuration.numberOfSeconds = Remainder;
+
+    return taskDuration;
+}
+
+int printTaskDuration(stDurations taskDuration)
+{
+    cout << taskDuration.numberOfDays << endl;
+    cout << taskDuration.numberOfHours << endl;
+    cout << taskDuration.numberOfMinutes << endl;
+    cout << taskDuration.numberOfSeconds << endl;
+}
+
+int main()
+{
+    int totalSeconds = ReadPositiveNum("enter total seconds");
+    printTaskDuration(secondsToDuration(totalSeconds));
+}
+
+problem44
+#include <iostream>
+    using namespace std;
+
+enum enDaysOfweek
+{
+    sat = 1,
+    sun = 2,
+    mon = 3,
+    tues = 4,
+    wed = 5,
+    thr = 6,
+    fri = 7
+};
+
+int readDayInRange(string message, int From, int To)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+    } while (number < From || number > To);
+    return number;
+}
+
+enDaysOfweek readDayOfWeek()
+{
+    return (enDaysOfweek)readDayInRange("please enter number of the day", 1, 7);
+}
+
+string getDayOfWeek(enDaysOfweek Day)
+{
+    switch (Day)
+    {
+    case enDaysOfweek::sat:
+        return "saturday";
+
+    case enDaysOfweek::sun:
+        return "sunday";
+
+    case enDaysOfweek::mon:
+        return "monday";
+
+    case enDaysOfweek::tues:
+        return "tuesday";
+
+    case enDaysOfweek::wed:
+        return "wednday";
+
+    case enDaysOfweek::thr:
+        return "thrsday";
+
+    case enDaysOfweek::fri:
+        return "friday";
+    }
+}
+
+int main()
+{
+    cout << getDayOfWeek(readDayOfWeek());
+}
+
+problem 45 enum monthOfYear {
+    jun = 1,
+    feb = 2,
+    mar = 3,
+    apr = 4,
+    may = 5,
+    junn = 6,
+    jul = 7,
+    aug = 8,
+    sep = 9,
+    oct = 10,
+    nov = 11,
+    dec = 12
+};
+int readMonthInRange(string message, int From, int To)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+    } while (number < From || number > To);
+    return number;
+}
+
+monthOfYear readMonthOfYear()
+{
+    return (monthOfYear)readMonthInRange("enter the number", 1, 12);
+}
+
+string getmonthOfYear(int Day)
+{
+    switch (Day)
+    {
+    case monthOfYear::jun:
+        return "jaunray";
+    case monthOfYear::feb:
+        return "februry";
+    case monthOfYear::mar:
+        return "march";
+    case monthOfYear::apr:
+        return "april";
+    case monthOfYear::may:
+        return "may";
+    case monthOfYear::junn:
+        return "june";
+    case monthOfYear::jul:
+        return "july";
+    case monthOfYear::aug:
+        return "august";
+    case monthOfYear::sep:
+        return "septamber";
+    case monthOfYear::oct:
+        return "october";
+    case monthOfYear::nov:
+        return "novamber";
+    case monthOfYear::dec:
+        return "december";
+    }
+}
+
+int main()
+{
+    cout << getmonthOfYear(readMonthOfYear());
+}
+
+problem 46 void getLettersAToZ()
+{
+    for (int i = 65; i <= 90; i++)
+    {
+        cout << char(i) << endl;
+    }
+}
+
+int main()
+{
+    getLettersAToZ();
+    return 0;
+}
+
+problem 47
+
+    int
+    readPositiveNumber(string message)
+{
+    int number = 0;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+    } while (number < 0);
+    return number;
+}
+
+float totalMonth(float loanAmount, float monthlyInstatment)
+{
+    return (float)loanAmount / monthlyInstatment;
+}
+
+int main()
+{
+    float loanAmount = readPositiveNumber("enter loan amount");
+    float monthlyInstatment = readPositiveNumber("enter monthly instatment");
+    cout << "the total months to pay =" << " " << totalMonth(loanAmount, monthlyInstatment) << endl;
+}
+
+problem 49
+
+    string
+    readPinCode()
+{
+    string pincode;
+    cout << "enter the pincode" << endl;
+    cin >> pincode;
+    return pincode;
+}
+
+bool login()
+{
+    string pincode;
+    do
+    {
+
+        pincode = readPinCode();
+        if (pincode == "5555")
+        {
+            return 1;
+        }
+        else
+        {
+            cout << "wrong pin" << endl;
+            system("color 4f");
+        }
+
+    } while (pincode != "5555");
+    return 0;
+}
+
+int main()
+{
+    if (login())
+    {
+        system("color 2f");
+        cout << "your balance =" << " " << 7000 << endl;
+    };
+    return 0;
+}

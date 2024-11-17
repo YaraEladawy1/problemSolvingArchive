@@ -1,1 +1,726 @@
-11
+problem 24
+#include <iostream>
+    using namespace std;
+
+int Readage()
+{
+    int age;
+    cout << "please enter your age" << endl;
+    cin >> age;
+    return age;
+}
+
+bool CheckAgeValidation(int number, int from, int to)
+{
+    return (number >= from && number <= to);
+}
+
+void printAge(int age)
+{
+    if (CheckAgeValidation(age, 18, 25))
+        cout << age << "is a valid age" << endl;
+    else
+        cout << age << "is invalid age" << endl;
+}
+
+int main()
+{
+
+    printAge(Readage());
+}
+
+problem 24 another solution
+#include <iostream>
+    using namespace std;
+
+int Readage(int &age)
+{
+    cout << "please enter your age" << endl;
+    cin >> age;
+}
+
+bool CheckAgeValidation(int number, int from, int to)
+{
+    return (number >= from && number <= to);
+}
+
+void printAge(int age)
+{
+    if (CheckAgeValidation(age, 20, 40))
+        cout << age << "is a valid age" << endl;
+    else
+        cout << age << "is invalid age" << endl;
+}
+int main()
+{
+    int age;
+    Readage(age);
+    printAge(age);
+}
+
+problem 25
+#include <iostream>
+    using namespace std;
+
+int Readage()
+{
+    int age;
+    cout << "please enter your age" << endl;
+    cin >> age;
+    return age;
+}
+
+bool CheckAgeValidation(int number, int from, int to)
+{
+    return (number >= from && number <= to);
+}
+
+int ReadUntilAgeBetween(int from, int to)
+{
+
+    int age = 0;
+
+    do
+    {
+        age = Readage();
+
+    } while (!CheckAgeValidation(age, from, to));
+    return age;
+}
+
+void printAge(int age)
+{
+    cout << "your age is" << age << endl;
+}
+int main()
+{
+
+    printAge(ReadUntilAgeBetween(18, 46));
+}
+
+problem 26
+#include <iostream>
+    using namespace std;
+
+int ReadNum()
+{
+    int number;
+    cout << "please enter the number" << endl;
+    cin >> number;
+    return number;
+}
+void printNum(int n)
+{
+
+    int counter;
+    counter = 0;
+    while (counter < n)
+    {
+        counter++;
+        cout << counter << endl;
+    }
+}
+void printNumm(int n)
+{
+    cout << "_____________" << endl;
+    int counter = 0;
+    do
+    {
+        counter++;
+        cout << counter << endl;
+    } while ((counter < n));
+}
+void printNummm(int n)
+{
+    cout << "_____________" << endl;
+    for (int counter = 1; counter <= n; counter++)
+    {
+        cout << counter << endl;
+    }
+}
+
+int main()
+{
+
+    int n = ReadNum();
+    printNum(n);
+    printNumm(n);
+    printNummm(n);
+}
+
+problem 27
+#include <iostream>
+    using namespace std;
+
+int ReadNum()
+{
+    int number;
+    cout << "please enter the number" << endl;
+    cin >> number;
+    return number;
+}
+void printNum(int n)
+{
+
+    int counter = n + 1;
+    while (counter > 1)
+    {
+        counter--;
+        cout << counter << endl;
+    }
+}
+void printNumm(int n)
+{
+    cout << "_____________" << endl;
+    int counter = n + 1;
+    do
+    {
+        counter--;
+        cout << counter << endl;
+    } while ((counter > 1));
+}
+void printNummm(int n)
+{
+    cout << "_____________" << endl;
+    for (int counter = n; counter >= 1; counter--)
+    {
+        cout << counter << endl;
+    }
+}
+
+int main()
+{
+
+    int n = ReadNum();
+    printNum(n);
+    printNumm(n);
+    printNummm(n);
+}
+
+problem 28
+#include <iostream>
+    using namespace std;
+
+enum EnNum
+{
+    odd = 1,
+    even = 2
+};
+
+int ReadNum()
+{
+    int number;
+    cout << "please enter the number" << endl;
+    cin >> number;
+
+    return number;
+}
+
+EnNum CheckOddOrEven(int number)
+{
+    if (number % 2 != 0)
+        return EnNum::odd;
+    else
+        return EnNum::even;
+}
+
+int PrintbyDoWhile(int n)
+{
+    int counter = 0;
+    int sum = 0;
+
+    do
+    {
+        counter++;
+        if (CheckOddOrEven(counter) == EnNum::odd)
+        {
+            sum += counter;
+        }
+    } while (counter < n);
+
+    return sum;
+}
+
+int Printbywhile(int n)
+{
+    int counter = 0;
+    int sum = 0;
+    while (counter < n)
+    {
+        counter++;
+        if (CheckOddOrEven(counter) == EnNum::odd)
+        {
+            sum += counter;
+        }
+    }
+
+    return sum;
+}
+
+int PrintByForloop(int n)
+{
+    int sum = 0;
+    for (int counter = 1; counter <= n; counter++)
+    {
+        if (CheckOddOrEven(counter) == EnNum::odd)
+        {
+            sum += counter;
+        }
+    }
+    return sum;
+}
+
+int main()
+
+{
+    int n = ReadNum();
+
+    cout << PrintByForloop(n) << endl;
+    cout << Printbywhile(n) << endl;
+    cout << PrintbyDoWhile(n) << endl;
+
+    return 0;
+}
+
+problem 29
+#include <iostream>
+    using namespace std;
+
+enum EnOddOrEven
+{
+    odd = 1,
+    even = 2
+};
+
+int ReadNumbers()
+{
+    int value;
+    cout << "please enter the value" << endl;
+    cin >> value;
+    return value;
+}
+
+EnOddOrEven CheckOddOrEven(int value)
+{
+    if (value % 2 != 0)
+        return EnOddOrEven::odd;
+    else
+        return EnOddOrEven::even;
+}
+
+int PrintByFor(int n)
+{
+    int sum = 0;
+    for (int counter = 1; counter <= n; counter++)
+        if (CheckOddOrEven(counter) == EnOddOrEven::even)
+        {
+            sum += counter;
+        }
+    return sum;
+}
+
+int PrintByWhile(int n)
+{
+    int counter = 0;
+    int sum = 0;
+
+    while (counter < n)
+    {
+        counter++;
+        if (CheckOddOrEven(counter) == EnOddOrEven::even)
+        {
+            sum += counter;
+        }
+    }
+    return sum;
+}
+
+int PrintByDO(int n)
+{
+    int counter = 0;
+    int sum = 0;
+    do
+    {
+        counter++;
+        if (CheckOddOrEven(counter) == EnOddOrEven::even)
+        {
+            sum += counter;
+        }
+    } while (counter < n);
+    return sum;
+}
+
+int main()
+{
+    int n = ReadNumbers();
+    cout << PrintByFor(n) << endl;
+    cout << PrintByWhile(n) << endl;
+    cout << PrintByDO(n) << endl;
+    return 0;
+}
+
+problem 30
+#include <iostream>
+    using namespace std;
+
+int ReadPositiveNumber()
+{
+    int num;
+    do
+    {
+        cout << "enter a positive number" << endl;
+        cin >> num;
+    } while (num < 0);
+}
+
+int factorial(int n)
+{
+    int f = 1;
+    for (int counter = n; counter >= 1; counter--)
+    {
+        f = f * counter;
+    }
+}
+
+int main()
+{
+    int n;
+    cout << factorial(ReadPositiveNumber()) << endl;
+    return 0;
+}
+
+problem 31
+#include <iostream>
+    using namespace std;
+
+int ReadValues()
+{
+    int value;
+    cout << "please enter the value" << endl;
+    cin >> value;
+    return value;
+}
+
+void CalculateValue(int value)
+{
+    int a, b, c;
+    a = value * value;
+    b = value * value * value;
+    c = value * value * value * value;
+
+    cout << a << b << c << endl;
+}
+
+int main()
+{
+    CalculateValue(ReadValues());
+    return 0;
+}
+
+problem 32
+#include <iostream>
+    using namespace std;
+
+int Readvalue()
+{
+    int value;
+    cout << "please enter value" << endl;
+    cin >> value;
+    return value;
+}
+
+int ReadM()
+{
+    int m;
+    cout << "please enter m" << endl;
+    cin >> m;
+    return m;
+}
+
+int Pow2_3_4(int value, int m)
+{
+    if (m == 0)
+    {
+        return 1;
+    }
+
+    int p = 1;
+    for (int i = 1; i <= m; i++)
+    {
+        p = p * value;
+    }
+    return p;
+}
+
+problem33
+#include <iostream>
+    using namespace std;
+
+int ReadGrade(int from, int to)
+{
+    int grade;
+    do
+    {
+        cout << "please enter grade from 0,100" << endl;
+        cin >> grade;
+    } while (grade < from || grade > to);
+    return grade;
+}
+
+char GetGradeLetter(int grade)
+{
+    if (grade >= 90)
+        return 'a';
+    else if (grade >= 80)
+        return 'b';
+    else
+        return 'c';
+}
+
+int main()
+{
+    cout << GetGradeLetter(ReadGrade(0, 100)) << endl;
+}
+
+problem 34
+#include <iostream>
+    using namespace std;
+
+int ReadPersentage()
+{
+    int value;
+    cout << "please enter the value" << endl;
+    cin >> value;
+    return value;
+}
+
+float GetBersentage(float value)
+{
+    if (value >= 90)
+        return 0.01;
+    else if (value >= 80)
+        return 0.02;
+    else if (value >= 70)
+        return 0.03;
+    else
+        return 0.00;
+}
+
+float CalculateComission(float value)
+{
+    return GetBersentage(value) * value;
+}
+
+int main()
+{
+    float value = ReadPersentage();
+    cout << "the persentage =" << GetBersentage(value) << endl;
+    cout << "the comission=" << CalculateComission(value) << endl;
+}
+
+problem 36
+#include <iostream>
+    using namespace std;
+enum Enoperation
+{
+    add = '+',
+    subtract = '-',
+    multiply = '*',
+    divide = '/'
+};
+
+int ReadNumbers(string message)
+{
+    int Number = 0;
+    cout << message << endl;
+    cin >> Number;
+    return Number;
+}
+
+Enoperation ReadTybe()
+{
+    char ot = '+';
+    cout << "please enter operation tybe" << endl;
+    cin >> ot;
+    return (Enoperation)ot;
+}
+
+float Claculate(float FirstNumber, float secondNumber, Enoperation opTybe)
+{
+    switch (opTybe)
+    {
+    case Enoperation::divide:
+        return FirstNumber / secondNumber;
+
+    case Enoperation::add:
+        return FirstNumber + secondNumber;
+
+    case Enoperation::multiply:
+        return FirstNumber * secondNumber;
+
+    case Enoperation::subtract:
+        return FirstNumber - secondNumber;
+
+    default:
+        return FirstNumber + secondNumber;
+    }
+}
+
+int main()
+{
+    float FirstNumber = ReadNumbers("enter first Number");
+    float secondNumber = ReadNumbers("enter second Number");
+    Enoperation opTybe = ReadTybe();
+    cout << "the Result =" << Claculate(FirstNumber, secondNumber, opTybe) << endl;
+}
+
+prpblem 37
+
+#include <iostream>
+    using namespace std;
+
+int ReadNumbers(string message)
+{
+    int number = 0;
+    cout << message << endl;
+    cin >> number;
+    return number;
+}
+
+int calculateSum()
+{
+    int sum = 0, number = 0, counter = 1;
+
+    do
+    {
+        number = ReadNumbers("enter number" + to_string(counter));
+        if (number == 55)
+        {
+            break;
+        }
+
+        sum += number;
+        counter++;
+
+    } while (number != 55);
+
+    return sum;
+}
+
+int main()
+{
+    cout << "the result=" << calculateSum() << endl;
+}
+
+problem38
+#include <iostream>
+    using namespace std;
+
+enum EnNumberTybe
+{
+    prime = 1,
+    notPrime = 2
+};
+
+float ReadNumber(string message)
+{
+    float number = 0;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+    } while (number < 0);
+    return number;
+}
+
+EnNumberTybe CheckNumberTybe(int number)
+{
+    int y = (number / 2);
+    int counter;
+    for (counter = 2; counter <= y; counter++)
+    {
+        if (number % counter == 0)
+            return EnNumberTybe::notPrime;
+    }
+    return EnNumberTybe::prime;
+}
+
+void PrintNumberTybe(int number)
+{
+    switch (CheckNumberTybe(number))
+    {
+    case EnNumberTybe::notPrime:
+        cout << "the number is not prime" << endl;
+        break;
+
+    case EnNumberTybe::prime:
+        cout << "the number is prime" << endl;
+    }
+}
+
+int main()
+{
+    PrintNumberTybe(ReadNumber("please enter a positive number"));
+}
+
+problem 39
+#include <iostream>
+    using namespace std;
+
+float ReadNumber(string message)
+{
+    int number = 0;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+
+    } while (number < 0);
+    return number;
+}
+
+int CalculateRemainder(float totalBill, float totalPaid)
+{
+    return totalPaid - totalBill;
+}
+
+int main()
+{
+    float totalBill = ReadNumber("enter total bill");
+    float totalPaid = ReadNumber("Read total paid");
+    cout << "******************" << endl;
+    cout << "the remainder=" << CalculateRemainder(totalBill, totalPaid) << endl;
+}
+
+problem 40
+#include <iostream>
+    using namespace std;
+
+float ReadNumber(string message)
+{
+    int number = 0;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+
+    } while (number < 0);
+    return number;
+}
+
+int CalculateIt(float totalBill)
+{
+    totalBill = totalBill * 1.1;
+    totalBill = totalBill * 1.16;
+    return totalBill;
+}
+
+int main()
+{
+    float totalBill = ReadNumber("enter the total bill");
+    cout << "the total bill = " << totalBill << endl;
+
+    cout << "the final total =" << CalculateIt(totalBill) << endl;
+}
+
+
