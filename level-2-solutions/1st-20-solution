@@ -1,0 +1,742 @@
+problem 2
+#include <iostream>
+using namespace std;
+
+int readPositiveNumber(string message)
+{
+    int number = 0;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+
+    } while (number < 0);
+    return number;
+}
+
+bool checkPerfectNumber(int number)
+{
+    int sum = 0;
+    for (int i = 1; i < number ; i++)
+    {
+        if (number % i == 0)
+            sum += i;
+    }
+    return number == sum;
+}
+
+void printNumber(int number)
+{
+    if (checkPerfectNumber(number))
+        cout << "the number is perfect";
+    else
+        cout << "the number is not perfect" << endl;
+}
+
+int main()
+{
+  
+}
+
+
+problem 3
+#include <iostream>
+using namespace std;
+
+
+    int number = 0;
+    doint readPositiveNumber(string message)
+{
+    {
+        cout << message << endl;
+        cin >> number;
+
+    } while (number < 0);
+    return number;
+}
+
+bool checkPerfectNumber(int number)
+{
+    int sum = 0;
+    for (int i = 1; i < number ; i++)
+    {
+        if (number % i == 0)
+            sum += i;
+    }
+    return number == sum;
+}
+
+void printNumber(int number)
+{
+    if (checkPerfectNumber(number))
+        cout << "the number is perfect";
+    else
+        cout << "the number is not perfect" << endl;
+}
+
+int main()
+{
+    printNumber(readPositiveNumber("enter a positive number"));
+}
+
+problem 4
+#include <iostream>
+using namespace std;
+
+int readPositiveNumber(string message)
+{
+    int number = 0;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+    } while (number < 0);
+    return number;
+}
+
+problem 2
+#include <iostream>
+using namespace std;
+
+int readPositiveNumber(string message)
+{
+    int number = 0;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+
+    } while (number < 0);
+    return number;
+}
+
+bool checkPerfectNumber(int number)
+{
+bool isPerfectNumber(int number)
+{
+    int sum = 0;
+    for (int i = 1; i < number; i++)
+    {
+        if (number % i == 0)
+            sum += i;
+    }
+    return number == sum;
+}
+
+void printNumber(int number)
+{
+    for (int i = 1; i <= number; i++)
+    {
+        if (isPerfectNumber(i))
+        {
+            cout << i << endl;
+        }
+    }
+}
+
+int main()
+{
+    printNumber(readPositiveNumber("enter num"));
+}
+
+
+problem 5
+#include <iostream>
+using namespace std;
+
+int readnum(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+    } while (number < 0);
+    return number;
+}
+
+int printInOrder(int number)
+{
+    int remainder = 0;
+    while (number > 0)
+    {
+        remainder = number % 10;
+        number = number / 10;
+        cout << remainder << endl;
+    }
+}
+
+int main()
+{
+    printInOrder(readnum("enter number"));
+}
+
+problem 6
+#include <iostream>
+using namespace std;
+
+int readnum(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+    } while (number < 0);
+    return number;
+}
+
+int sumDigits(int number)
+{
+    int remainder, sum = 0;
+
+    while (number > 0)
+    {
+        remainder = number % 10;
+        number = number / 10;
+        sum = sum + remainder;
+    }
+    return sum;
+}
+
+int main()
+{
+    cout << sumDigits(readnum("enter number")) << endl;
+}
+
+problem 7
+#include <iostream>
+using namespace std;
+
+int readnum(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+    } while (number < 0);
+    return number;
+}
+
+int printNumber(int number)
+{
+    int remainder, number2 = 0;
+    while (number > 0)
+    {
+        remainder = number % 10;
+        number = number / 10;
+        number2 = number2 * 10 + remainder;
+    }
+    return number2;
+}
+
+int main()
+{
+    cout << printNumber(readnum("enter number")) << endl;
+}
+
+problem 8
+#include <iostream>
+using namespace std;
+
+int readPositiveNUmber(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+        return number;
+    } while (number > 0);
+}
+
+int countDigitFrequency(int number, int readDigit)
+{
+    int remainder, freqcount = 0;
+    while (number > 0)
+    {
+        remainder = number % 10;
+        number = number / 10;
+
+        if (readDigit == remainder)
+        {
+            freqcount++;
+        }
+    }
+    return freqcount;
+}
+
+int main()
+{
+    int readMainNumber = readPositiveNUmber("enter the main number");
+    short readDigit = readPositiveNUmber("enter the digit ");
+    cout << readDigit << "frequency = " << countDigitFrequency(readMainNumber, readDigit) << endl;
+}
+
+problem 9
+#include <iostream>
+using namespace std;
+
+int readPositiveNUmber(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+
+    } while (number < 0);
+    return number;
+}
+
+int countDigitFrequency(int Number, int readDigit)
+{
+    int remainder, freqcount = 0;
+    while (Number > 0)
+    {
+        remainder = Number % 10;
+        Number = Number / 10;
+
+        if (readDigit == remainder)
+        {
+            freqcount++;
+        }
+    }
+    return freqcount;
+}
+
+void printALLDigits(int Number)
+{
+    cout << endl;
+
+    for (int i = 0; i < 10; i++)
+    {
+        short readDigit = 0;
+        readDigit = countDigitFrequency(Number, i);
+        if (readDigit > 0)
+        {
+            cout << "Digit Frequency of" << i << "=" << readDigit << endl;
+        }
+    }
+}
+
+int main()
+{
+    int Number = readPositiveNUmber("enter the number");
+    printALLDigits(Number);
+}
+
+problem 10
+#include <iostream>
+using namespace std;
+
+int readPositiveNUmber(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+
+    } while (number < 0);
+    return number;
+}
+
+int reverseDigit(int number)
+{
+    int remainder, number2 = 0;
+    while (number > 0)
+    {
+        remainder = number % 10;
+        number = number / 10;
+        number2 = number2 * 10 + remainder;
+    }
+    return number2;
+}
+
+int readDigit(int number)
+{
+    int remainder;
+    while (number > 0)
+    {
+        remainder = number % 10;
+        number = number / 10;
+        cout << remainder << endl;
+    }
+}
+
+int main()
+{
+    readDigit(reverseDigit(readPositiveNUmber("enter the number")));
+}
+
+problem11
+#include <iostream>
+using namespace std;
+
+int readPositiveNUmber(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+
+    } while (number < 0);
+    return number;
+}
+
+int reverseDigit(int number)
+{
+    int remainder, number2 = 0;
+    while (number > 0)
+    {
+        remainder = number % 10;
+        number = number / 10;
+        number2 = number2 * 10 + remainder;
+    }
+    return number2;
+}
+
+int checkDigits(int number)
+{
+    int number2;
+    if (number == number2)
+    {
+        cout << "your number is a palindrome" << endl;
+    }
+    else
+        cout << "your number isnot a palindrome" << endl;
+}
+
+int main()
+{
+    checkDigits(reverseDigit(readPositiveNUmber("enter the number")));
+}
+
+problem 12
+#include <iostream>
+using namespace std;
+
+int readPositiveNUmber(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+
+    } while (number < 0);
+    return number;
+}
+
+int PrintNumber(int number)
+{
+    cout << "\n";
+    for (int i = number; i >= 1; i--)
+    {
+        for (int y = 1; y <= i; y++)
+        {
+            cout << i;
+        }
+        cout << "\n";
+    }
+}
+
+int main()
+{
+    PrintNumber(readPositiveNUmber("enter the number"));
+}
+
+problem 13
+#include <iostream>
+using namespace std;
+
+int readPositiveNUmber(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+
+    } while (number < 0);
+    return number;
+}
+
+int printPattern(int number)
+{
+    cout << "\n";
+    for (int i = 1; i <= number; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            cout << i;
+        }
+        cout << "\n";
+    }
+}
+
+int main()
+{
+    printPattern(readPositiveNUmber("enter number"));
+}
+
+problem 14
+#include <iostream>
+using namespace std;
+
+int readPositiveNUmber(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+
+    } while (number < 0);
+    return number;
+}
+
+void PrintPattern(int number)
+{
+    cout << "\n";
+    for (int i = 65 + number - 1; i >= 65; i--)
+    {
+        for (int j = 1; j <= number - (65 + number - 1 - i); j++)
+        {
+            cout << char(i);
+        }
+        cout << "\n";
+    }
+}
+
+int main()
+{
+    PrintPattern(readPositiveNUmber("enter number"));
+}
+
+problem 15
+#include <iostream>
+using namespace std;
+
+int readPositiveNUmber(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+
+    } while (number < 0);
+    return number;
+}
+
+void PrintPattern(int number)
+{
+    cout << "\n";
+    for (int i = 65; i <= 65 + number - 1; i++)
+    {
+        for (int j = 1; j <= i - 65 + 1; j++)
+        {
+            cout << char(i);
+        }
+        cout << "\n";
+    }
+}
+
+int main()
+{
+    PrintPattern(readPositiveNUmber("enter number"));
+}
+
+problem 16
+#include <iostream>
+using namespace std;
+
+int readPositiveNUmber(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+
+    } while (number < 0);
+    return number;
+}
+
+void printLetters(int number)
+{
+    for (char i = 65; i <= 90; i++)
+    {
+
+        for (char x = 65; x <= 90; x++)
+        {
+            cout << i << i << x << endl;
+        }
+    }
+    cout << "/n" << endl;
+}
+
+int main()
+{
+    printLetters(readPositiveNUmber("enter the number"));
+}
+
+problem 17
+#include <iostream>
+using namespace std;
+
+string ReadPassword()
+{
+    string password;
+    cout << "enter the password" << endl;
+    cin >> password;
+    return password;
+}
+
+bool GuessPassword(string password)
+{
+    int counter;
+    string word = "";
+    cout << "\n";
+
+    for (int i = 65; i <= 90; i++)
+    {
+        for (int j = 65; j <= 90; j++)
+        {
+            for (int y = 65; y <= 90; y++)
+            {
+                word = word + char(i);
+                word = word + char(j);
+                word = word + char(y);
+                counter++;
+
+                cout << "Trial [" << counter << "]:";
+                cout << word << "\n";
+
+                if (word == password)
+                {
+                    cout << "\n password is" << word << "\n";
+                    cout << "found after";
+                    cout << counter << "Trials \n";
+                    return true;
+                }
+                word = "";
+            }
+        }
+    }
+    return false;
+}
+
+int main()
+{
+    GuessPassword(ReadPassword());
+}
+
+problem 18
+#include <iostream>
+using namespace std;
+
+string readletter()
+{
+    string text;
+    cout << "enter the text" << endl;
+    cin >> text;
+    return text;
+}
+
+string textencrypt(string text, short keyEncrabtion)
+{
+    for (int i = 0; i <= text.length(); i++)
+    {
+        text[i] = char((int)text[i] + keyEncrabtion);
+    }
+    return text;
+}
+
+string textdecrypt(string text, short keyEncrabtion)
+{
+    for (int y = 0; y <= text.length(); y++)
+    {
+        text[y] = char((int)text[y] - keyEncrabtion);
+    }
+    return text;
+}
+
+int main()
+{
+    const short keyEncrabtion = 3;
+    string text = readletter();
+    string textAfterEncrypt, textAfterDecrypt;
+    textAfterEncrypt = textencrypt(text, keyEncrabtion);
+    textAfterDecrypt = textdecrypt(textAfterEncrypt, keyEncrabtion);
+    cout << "text  after encrypt" << " " << textAfterEncrypt << endl;
+    cout << "text after decrypt" << " " << textAfterDecrypt << endl;
+}
+
+problem 19
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int RandomNumber(int from, int to)
+{
+    int randomNum = rand() % (to - from + 1) + from;
+    return randomNum;
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    cout << RandomNumber(1, 10) << endl;
+    cout << RandomNumber(1, 10) << endl;
+}
+
+
+problem20
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int RandomNumber(int from, int to)
+{
+    return rand() % (to - from + 1) + from;
+}
+
+enum charType
+{
+    smallLetter = 1,
+    capitalLetter = 2,
+    specialCharacter = 3
+};
+
+char getCharType(charType charchoose)
+{
+    switch (charchoose)
+    {
+        case smallLetter:
+            return char(RandomNumber(97, 122)); // small letter range: 97 to 122 (ASCII)
+        case capitalLetter:
+            return char(RandomNumber(65, 90)); // capital letter range: 65 to 90 (ASCII)
+        case specialCharacter:
+            return char(RandomNumber(33, 47)); // special characters range: 33 to 47 (ASCII)
+        default:
+            return '?'; // Default case in case of an invalid enum value
+    }
+}
+
+int main()
+{
+    srand((unsigned)time(NULL)); // Initialize the random number generator
+
+    cout << "Random Capital Letter: " << getCharType(capitalLetter) << endl;
+    cout << "Random Small Letter: " << getCharType(smallLetter) << endl;
+    cout << "Random Special Character: " << getCharType(specialCharacter) << endl;
+
+    return 0;
+}
