@@ -1,0 +1,719 @@
+PROBLEM21
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+enum enCharTybe
+{
+    smallLetter = 1,
+    capitalLetter = 2,
+    specialDigits = 3,
+    digits = 4
+};
+
+int getRandomNum(int from, int to)
+{
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+char getRandomChar(enCharTybe charTybe)
+{
+    switch (charTybe)
+    {
+    case enCharTybe::capitalLetter:
+
+        return char(getRandomNum(65, 90));
+
+    case enCharTybe::smallLetter:
+
+        return char(getRandomNum(97, 122));
+
+    case enCharTybe::specialDigits:
+
+        return char(getRandomNum(33, 47));
+
+    case enCharTybe::digits:
+        return char(getRandomNum(48, 75));
+    }
+}
+
+int readPositiveNum(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+        return number;
+    } while (number <= 0);
+}
+
+string genrateWord(enCharTybe charTybe, short Length)
+{
+    string word;
+    for (int i = 1; i <=Length; i++)
+    {
+        word = word + getRandomChar(charTybe);
+       
+    }
+     return word;
+}
+
+string genrateKey()
+{
+    string Key = "";
+    Key = genrateWord(enCharTybe::capitalLetter, 4) + "-";
+    Key = Key + genrateWord(enCharTybe::capitalLetter, 4) + "-";
+    Key = Key + genrateWord(enCharTybe::capitalLetter, 4) + "-";
+    Key = Key + genrateWord(enCharTybe::capitalLetter, 4);
+    return Key;
+}
+
+void genrateKeys(short numberOfKeys)
+{
+    for (int i = 1; i <= numberOfKeys; i++)
+    {
+        cout << "key[" << i << "]=";
+        cout << genrateKey() << endl;
+    }
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    genrateKeys(readPositiveNum("enter hoe many keys"));
+    return 0;
+}
+
+problem22
+#include <iostream>
+using namespace std;
+
+int readPositiveNumber(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+        return number;
+    } while (number > 0);
+}
+
+void readArray(int arr[100], int &arrLength)
+{
+    cout << "enter how many elements the array has?" << endl;
+    cin >> arrLength;
+
+    cout << "enter the element of the array?" << endl;
+    for (int i = 0; i < arrLength; i++)
+    {
+        cout << "element[" << i + 1 << "]:",
+            cin >> arr[i];
+    }
+}
+
+void printArray(int arr[100], int &arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        cout << arr[i] << " ";
+        cout << "\n";
+    }
+}
+
+int timesRepeated(int arr[100], int arrLength, int numberToCheck)
+{
+    int count = 0;
+    for (int i = 0; i < arrLength; i++)
+    {
+        if (arr[i] == numberToCheck)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int arr[100], arrLength, numbrtToCheck;
+    readArray(arr, arrLength);
+    numbrtToCheck = readPositiveNumber("enter the number u want to check");
+    cout << "the original array=" << endl;
+    printArray(arr, arrLength);
+    cout << "the element" << " " << numbrtToCheck << "was repeated" << timesRepeated(arr, arrLength, numbrtToCheck) << " " << "times" << endl;
+}
+
+problem 23
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int getRandomNumber(int from, int to)
+{
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+int arrayFilling(int arr[100], int &arrLength)
+{
+    cout << "enter array element" << endl;
+    cin >> arrLength;
+    for (int i = 0; i < arrLength; i++)
+    {
+        arr[i] = getRandomNumber(1, 100);
+    }
+}
+
+int printArray(int arr[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        cout << arr[i] << endl;
+    }
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    int arr[100], arrLength;
+
+    arrayFilling(arr, arrLength);
+    cout << "array elements" << printArray(arr, arrLength) << endl;
+}
+
+problem 24
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int getRandomNumber(int from, int to)
+{
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+int arrayFilling(int arr[100], int &arrLength)
+{
+    cout << "enter array element" << endl;
+    cin >> arrLength;
+    for (int i = 0; i < arrLength; i++)
+    {
+        arr[i] = getRandomNumber(1, 100);
+    }
+}
+
+int printArray(int arr[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        cout << arr[i] << endl;
+    }
+}
+
+int getMaxNum(int arr[100], int arrLength)
+{
+    int max = 0;
+    for (int i = 0; i < arrLength; i++)
+    {
+        if (arr[i] > max)
+        {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    int arr[100], arrLength;
+    arrayFilling(arr, arrLength);
+    printArray(arr, arrLength);
+    cout << "the max is" << getMaxNum(arr, arrLength) << endl;
+}
+
+problem 25
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int getRandomNumber(int from, int to)
+{
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+int arrayFilling(int arr[100], int &arrLength)
+{
+    cout << "enter array element" << endl;
+    cin >> arrLength;
+    for (int i = 0; i < arrLength; i++)
+    {
+        arr[i] = getRandomNumber(1, 100);
+    }
+}
+
+int printArray(int arr[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        cout << arr[i] << endl;
+    }
+}
+
+int getMaxNum(int arr[100], int arrLength)
+{
+    int min = 0;
+    min = arr[0];
+    for (int i = 0; i < arrLength; i++)
+    {
+        if (arr[i] < min)
+        {
+            min = arr[i];
+        }
+    }
+    return min;
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    int arr[100], arrLength;
+    arrayFilling(arr, arrLength);
+    printArray(arr, arrLength);
+    cout << "the min is" << getMaxNum(arr, arrLength) << endl;
+}
+
+problem 26
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int getRandomNumber(int from, int to)
+{
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+int arrayFilling(int arr[100], int &arrLength)
+{
+    cout << "enter array element" << endl;
+    cin >> arrLength;
+    for (int i = 0; i < arrLength; i++)
+    {
+        arr[i] = getRandomNumber(1, 100);
+    }
+}
+
+int printArray(int arr[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        cout << arr[i] << endl;
+    }
+}
+
+int sumArray(int arr[100], int arrLength)
+{
+    int sum = 0;
+    for (int i = 0; i < arrLength; i++)
+    {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    int arr[100], arrLength;
+    arrayFilling(arr, arrLength);
+    printArray(arr, arrLength);
+    cout << sumArray(arr, arrLength) << endl;
+}
+
+problem 28
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int getRandomNumber(int from, int to)
+{
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+int arrayFilling(int arr[100], int &arrLength)
+{
+    cout << "enter array element" << endl;
+    cin >> arrLength;
+    for (int i = 0; i < arrLength; i++)
+    {
+        arr[i] = getRandomNumber(1, 100);
+    }
+}
+
+int printArray(int arr[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        cout << arr[i] << endl;
+    }
+}
+
+void copyArray(int arrsouce[100], int arrdestnation[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        arrdestnation[i] = arrsouce[i];
+    }
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    int arr[100], arr2[100], arrLength;
+    arrayFilling(arr, arrLength);
+
+    copyArray(arr, arr2, arrLength);
+    printArray(arr, arrLength);
+    printArray(arr2, arrLength);
+}
+
+problem 30
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int getRandomNumber(int from, int to)
+{
+    return rand() % (to - from + 1) + from;
+}
+
+int readPositiveNumber(string message)
+{
+    int number;
+    do
+    {
+        cout << message;
+        cin >> number;
+        if (number > 0)
+            return number;
+        cout << "Please enter a positive number!" << endl;
+    } while (number <= 0);
+}
+
+void arrayFilling(int arr[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        arr[i] = getRandomNumber(1, 100);
+    }
+}
+
+void sumOfArrays(const int arr1[100], const int arr2[100], int arrSum[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        arrSum[i] = arr1[i] + arr2[i];
+    }
+}
+
+void printArray(const int arr[100], int arrLength, string arrayName)
+{
+    cout << arrayName << " elements:" << endl;
+    for (int i = 0; i < arrLength; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    int arr[100], arr2[100], arrSum[100];
+    int arrLength = readPositiveNumber("How many elements do you want in the arrays? ");
+
+    // Fill the first and second arrays
+    arrayFilling(arr, arrLength);
+    arrayFilling(arr2, arrLength);
+
+    // Calculate the sum of the two arrays
+    sumOfArrays(arr, arr2, arrSum, arrLength);
+
+    // Print the arrays
+    printArray(arr, arrLength, "Array 1");
+    printArray(arr2, arrLength, "Array 2");
+    printArray(arrSum, arrLength, "Sum Array");
+
+    return 0;
+}
+
+problem 31
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int readPositiveNumber(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+    } while (number <= 0);
+    return number;
+}
+
+int getRandomNum(int from, int to)
+{
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+void fillArray(int arr[100], int arrlength)
+{
+    for (int i = 0; i < arrlength; i++)
+    {
+        arr[i] = i + 1;
+    }
+}
+
+void printArray(int arr[100], int arrlength)
+{
+    for (int i = 0; i < arrlength; i++)
+    {
+        cout << arr[i] << endl;
+    }
+}
+
+void swap(int &a, int &b)
+{
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+}
+
+void shuffleArray(int arr[100], int arrlength)
+{
+    for (int i = 0; i < arrlength; i++)
+    {
+        swap(arr[getRandomNum(1, arrlength) - 1], arr[getRandomNum(1, arrlength) - 1]);
+    }
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    int arr[100];
+    int arrlength = readPositiveNumber("enter the array element?");
+    fillArray(arr, arrlength);
+
+    cout << "array befor shuffling" << endl;
+    printArray(arr, arrlength);
+    shuffleArray(arr, arrlength);
+    cout << "array after shuffling" << endl;
+    printArray(arr, arrlength);
+}
+
+problem 32
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int readPositiveNumber(string message)
+{
+    int number;
+    do
+    {
+        cout << message << endl;
+        cin >> number;
+    } while (number <= 0);
+    return number;
+}
+
+int getRandomNum(int from, int to)
+{
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+void fillArray(int arr[100], int arrlength)
+{
+    for (int i = 0; i < arrlength; i++)
+    {
+        arr[i] = i + 1;
+    }
+}
+
+void printArray(int arr[100], int arrlength)
+{
+    for (int i = 0; i < arrlength; i++)
+    {
+        cout << arr[i] << endl;
+    }
+}
+
+void arrayInReverse(int arrsourse[100], int arrdestnation[100], int arrlength)
+{
+    for (int i = 0; i < arrlength; i++)
+    {
+        arrdestnation[i] = arrsourse[arrlength - 1 - i];
+    }
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    int arr[100];
+    int arrlength = readPositiveNumber("enter the array element?");
+    fillArray(arr, arrlength);
+
+    int arr2[100];
+    arrayInReverse(arr, arr2, arrlength);
+
+    printArray(arr, arrlength);
+
+    printArray(arr2, arrlength);
+}
+
+problem 34
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int getRandomNum(int from, int to)
+{
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+void fillArray(int arr[100], int &arrlength)
+{
+    cout << "\nEnter number of elements:\n";
+    cin >> arrlength;
+    for (int i = 0; i < arrlength; i++)
+    {
+
+        arr[i] = getRandomNum(1, 100);
+    }
+}
+
+void printArray(int arr[100], int arrlength)
+{
+    for (int i = 0; i < arrlength; i++)
+    {
+        cout << arr[i] << endl;
+    }
+}
+
+short FindNumberPositionInArray(int number, int arr[100], int arrlength)
+{
+    /*This function will search for a number in array and return
+    its index, or return -1 if it does not exists*/
+    for (int i = 0; i < arrlength; i++)
+    {
+        if (arr[i] == number)
+            return i; // and return the index
+    }
+    // if you reached here, this means the number is not found
+    return -1;
+}
+
+int ReadNumber()
+{
+    int number;
+    cout << "\nPlease enter a number to search for?\n";
+    cin >> number;
+    return number;
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    int arr[100], arrlength = 0;
+    fillArray(arr, arrlength);
+
+    cout << "the array elements are" << endl;
+    printArray(arr, arrlength);
+
+    int number = ReadNumber();
+    cout << "the number u are looking for is" << number << endl;
+
+    short numberPosition = FindNumberPositionInArray(number, arr,
+                                                     arrlength);
+
+    if (numberPosition == -1)
+    {
+        cout << "the number is not found" << endl;
+    }
+    else
+        cout << "the number found at position :" << numberPosition << endl;
+
+    cout << "the number found in order :" << numberPosition + 1 << endl;
+}
+
+problem 36
+#include <iostream>
+using namespace std;
+
+int ReadNumber()
+{
+    int number;
+    cout << "\nPlease enter a number \n";
+    cin >> number;
+    return number;
+}
+
+void addElement(int number, int arr[100], int &arrlength)
+{
+    arrlength++;
+    arr[arrlength - 1] = number;
+}
+
+void userInPutNumber(int arr[100], int &arrlength)
+{
+
+    bool addMore = true;
+    do
+    {
+        addElement(ReadNumber(), arr, arrlength);
+        cout << "do u want to add a new number? [0]: no , [1]:yes " << endl;
+        cin >> addMore;
+
+    } while (addMore);
+}
+
+void printArray(int arr[100], int arrlength)
+{
+    for (int i = 0; i < arrlength; i++)
+    {
+        cout << arr[i] << " ";
+        cout << "\n";
+    }
+}
+
+int main()
+{
+    int arr[100], arrlength = 0;
+    userInPutNumber(arr, arrlength);
+
+    cout << "array length =" << arrlength << endl;
+    cout << "array elemnts=";
+    printArray(arr, arrlength);
+}
