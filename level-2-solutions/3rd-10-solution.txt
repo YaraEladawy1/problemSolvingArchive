@@ -1,0 +1,253 @@
+problem 41
+#include <iostream>
+using namespace std;
+
+void fillArray(int arr[100], int &arrlength)
+{
+    arrlength = 5;
+    arr[0] = 10;
+    arr[1] = 10;
+    arr[2] = 20;
+    arr[3] = 10;
+    arr[4] = 10;
+}
+
+void printArray(int arr[100], int arrlength)
+{
+    for (int i = 0; i < arrlength; i++)
+    {
+        cout << arr[i] << " ";
+        cout << "\n";
+    }
+}
+
+bool IsArrayPalindrom(int arr[100], int arrlength)
+{
+    for (int i = 0; i < arrlength; i++)
+    {
+        if (arr[i] != arr[arrlength - i - 1])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main()
+{
+    int arr[100], arrlength;
+    fillArray(arr, arrlength);
+
+    cout << "array elements ";
+    printArray(arr, arrlength);
+    cout << "\n";
+
+    if (IsArrayPalindrom(arr, arrlength))
+        cout << "yes it is palindrom" << endl;
+    else
+        cout << "no it is not pailndrom" << endl;
+    return 0;
+}
+
+problem 42
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+int getRandomNum(int from, int to)
+{
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+void fillArray(int arr[100], int &arrlength)
+{
+    cout << "enter array length" << endl;
+    cin >> arrlength;
+
+    for (int i = 0; i < arrlength; i++)
+    {
+        arr[i] = getRandomNum(1, 100);
+    }
+}
+
+void printArray(int arr[100], int arrlength)
+{
+    for (int i = 0; i < arrlength; i++)
+    {
+        cout << arr[i] << " ";
+        cout << "\n";
+    }
+}
+
+int oddNum(int arr[100], int arrlength)
+{
+    int counter = 0;
+    for (int i = 0; i < arrlength; i++)
+    {
+        if (arr[i] % 2 != 0)
+        {
+            counter++;
+        }
+    }
+    return counter;
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    int arr[100], arrlength;
+    fillArray(arr, arrlength);
+
+    cout << "array elements ";
+    printArray(arr, arrlength);
+    cout << "\n";
+
+    cout << "odd number = ";
+    cout << oddNum(arr, arrlength) << endl;
+}
+
+problem 43
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+int getRandomNum(int from, int to)
+{
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+void fillArray(int arr[100], int &arrlength)
+{
+    cout << "enter array length" << endl;
+    cin >> arrlength;
+
+    for (int i = 0; i < arrlength; i++)
+    {
+        arr[i] = getRandomNum(1, 100);
+    }
+}
+
+void printArray(int arr[100], int arrlength)
+{
+    for (int i = 0; i < arrlength; i++)
+    {
+        cout << arr[i] << " ";
+        cout << "\n";
+    }
+}
+
+int evenNum(int arr[100], int arrlength)
+{
+    int counter = 0;
+    for (int i = 0; i < arrlength; i++)
+    {
+        if (arr[i] % 2 == 0)
+        {
+            counter++;
+        }
+    }
+    return counter;
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    int arr[100], arrlength;
+    fillArray(arr, arrlength);
+
+    cout << "array elements ";
+    printArray(arr, arrlength);
+    cout << "\n";
+
+    cout << "even number = ";
+    cout << evenNum(arr, arrlength) << endl;
+}
+
+problem 44
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+int getRandomNum(int from, int to)
+{
+    int randNum = rand() % (to - from + 1) + from;
+    return randNum;
+}
+
+void fillArray(int arr[100], int &arrlength)
+{
+    cout << "enter array length" << endl;
+    cin >> arrlength;
+
+    for (int i = 0; i < arrlength; i++)
+    {
+        arr[i] = getRandomNum(-100, 100);
+    }
+}
+
+void printArray(int arr[100], int arrlength)
+{
+    for (int i = 0; i < arrlength; i++)
+    {
+        cout << arr[i] << " ";
+        cout << "\n";
+    }
+}
+
+int positiveNum(int arr[100], int arrlength)
+{
+    int counter = 0;
+    for (int i = 0; i < arrlength; i++)
+    {
+        if (arr[i] >= 0)
+        {
+            counter++;
+        }
+    }
+    return counter;
+}
+
+int main()
+{
+    srand((unsigned)time(NULL));
+    int arr[100], arrlength;
+    fillArray(arr, arrlength);
+
+    cout << "array elements ";
+    printArray(arr, arrlength);
+    cout << "\n";
+
+    cout << "positive number = ";
+    cout << positiveNum(arr, arrlength) << endl;
+}
+
+46
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+float myABS(float number)
+{
+    if (number >= 0)
+        return number;
+    else
+        return number * -1;
+}
+float readnumber()
+{
+    float number;
+    cout << "please enter the number" << endl;
+    cin >> number;
+    return number;
+}
+
+int main()
+{
+    float number = readnumber();
+    cout << "my ABS" << myABS(number) << endl;
+    cout << "cpp abs" << abs(number) << endl;
+}
+
+
